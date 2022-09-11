@@ -7,6 +7,22 @@ body {
 input,
 button {
   font-family: cursive;
+  background-color: lightblue;
+  border: 2px solid #07f;
+  margin-right: 2px;
+  padding: 4px 7px;
+}
+
+button:hover {
+  background-color: #07f;
+}
+
+button:active {
+  background-color: darkblue;
+}
+
+button:focus {
+  border: 2px solid black;
 }
 
 .addButton {

@@ -1,0 +1,14 @@
+/* Add application styles & imports to this file! */
+body {
+  background-color: cornflowerblue;
+  font-family: cursive;
+}
+
+input,
+button {
+  font-family: cursive;
+}
+
+.addButton {
+  font-family: 'Wingdings 2';
+}

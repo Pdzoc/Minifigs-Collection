@@ -1,0 +1,11 @@
+<section>
+    <p>{{minifig.name}}</p>
+</section>
+<article>
+    <img [src]="minifig.set_img_url || './assets/0.jpg'">
+</article>
+<section>
+    <button *ngIf="this.addingFlag && !this.isCollection" (click)="onAdd(minifig)">+</button>
+    <button class="addButton" *ngIf="!this.addingFlag" disabled>R</button>
+    <button *ngIf="this.isCollection"(click)="onRemove(minifig)">-</button>
+</section>

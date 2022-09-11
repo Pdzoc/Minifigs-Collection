@@ -1,0 +1,20 @@
+<button (click)="filterThemes()">Filter</button>
+<main *ngIf="themesData.length>0 && !filteredFlag">
+    <ul *ngFor="let item of themesData">
+        <!-- <li>ID: {{item.id}}</li> -->
+        <!-- <li>Parent ID: {{item.parent_id || "-"}}</li>
+        <li>Name: {{item.name}}</li> -->
+        <li>{{item.id}} - {{item.name}} ({{item.parent_id || "-"}})</li>
+    </ul>
+</main>
+<main *ngIf="themesData.length>0 && filteredFlag">
+    <ul *ngFor="let item of filtered">
+        <!-- <li>ID: {{item.id}}</li>
+        <li>Name: {{item.name}}</li> -->
+        <li>{{item.id}} - {{item.name}}</li>
+            <ul *ngFor="let child of item.children">
+                <li>{{child.id}} - {{child.name}}</li>
+            </ul>
+        
+    </ul>
+</main>

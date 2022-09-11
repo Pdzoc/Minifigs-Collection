@@ -1,0 +1,25 @@
+<div id="container">
+        <section>
+                <div>
+                        <button (click)="getMinifigs(page)">Get</button>
+                        <button [disabled]="!this.prev" (click)="getMinifigs(0, this.prev, -1)">Prev</button>
+                        <input type="number" name="" id="" min="1" [(ngModel)]="page" (change)="getMinifigs(page)">
+                        <button [disabled]="!this.next || this.changingPage" (click)="getMinifigs(0, this.next, 1)">Next</button>
+                </div>
+                <div>
+                        ID: 
+                        <input type="number" name="" id="" min="1" [(ngModel)]="themeID">
+                        <button (click)="getID(themeID)">Search ID</button>
+                </div>
+                <div>
+                        Keyword: 
+                        <input type="text" [(ngModel)]="keyword">
+                        <button (click)="search(keyword)">Search</button>
+                        <button (click)="getRandom()">Random</button>
+                </div>
+        </section>
+        <main *ngIf="allData.length > 0">
+                <app-minifig *ngFor="let item of allData" [minifig]="item" [isCollection]="compare(item)" [class.have]="compare(item)" ></app-minifig>
+        </main>
+        <div id="info" *ngIf="allData.length == 0"><h3>No data!</h3></div>
+</div>

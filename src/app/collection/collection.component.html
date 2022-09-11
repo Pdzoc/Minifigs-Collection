@@ -1,0 +1,9 @@
+<div *ngIf="!currentCollection">
+    <p>Your collection is empty!</p>
+</div>
+<div *ngIf="currentCollection">
+    <h2>You have {{(currentCollection | async).length}} minifigures!</h2>
+</div>
+<main *ngIf="currentCollection">
+    <app-minifig *ngFor="let item of currentCollection | async" [minifig]="item" [isCollection]="true"></app-minifig>
+</main>

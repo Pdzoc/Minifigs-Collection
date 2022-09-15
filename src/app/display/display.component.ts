@@ -27,14 +27,12 @@ export class DisplayComponent implements OnInit {
   prev: string;
   
   getMinifigs(page?:number, url?:string, factor?:number) {
-    console.log(this.storedFigs)
     this.storedIds = this.collectionServ.getIds();
     this.changingPage = false;
     if(typeof factor=='number') this.page += factor;
     this.next = "";
     this.prev = "";
     this.reqServ.getData(url, page).subscribe(el => {
-      console.log(el)
       if(el.next) {
         this.next = el.next;
       }
@@ -49,7 +47,6 @@ export class DisplayComponent implements OnInit {
   getID(id:number) {
     this.changingPage = false;
     this.reqServ.getID(id).subscribe(el => {
-      console.log(el)
       this.page = 1;
       this.next = "";
       this.prev = "";
@@ -89,9 +86,7 @@ export class DisplayComponent implements OnInit {
       next: (el) => minifigs.push(...el.results),
       complete: () => {
         minifigs = minifigs.filter(el => el.set_img_url)
-        console.log(minifigs)
         minifigs.sort(()=> Math.random() - .5);
-        console.log(minifigs[0])
         this.allData.push(minifigs[0])
       }
     }

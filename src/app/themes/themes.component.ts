@@ -12,14 +12,12 @@ export class ThemesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getThemes(1);
-    console.log(this.themesData)
   }
   themesData = [];
   filtered = [];
   filteredFlag = false;
 
   getThemes(page) {
-    // this.reqServ.getThemes(page).subscribe(el => this.themesData.push(...el.results))
     this.reqServ.getThemes(page).subscribe(
       {
         next: (v) => {
@@ -33,15 +31,6 @@ export class ThemesComponent implements OnInit {
 
   filterThemes() {
     this.filteredFlag = !this.filteredFlag;
-    
-    // this.filteredData = this.data.results.filter(el => el.parent_id==null)
-
-    // this.filteredData.forEach(el => el.children = []);
-    
-    // this.data.results.forEach(el => {
-    //   if(this.filteredData.findIndex(x => x.id == el.parent_id) > -1)
-    //   this.filteredData.find(x => x.id == el.parent_id).children.push(el)
-    // })
     this.filtered = this.themesData.filter(el => el.parent_id==null)
     this.filtered.forEach(el => el.children = []);
 
@@ -49,7 +38,6 @@ export class ThemesComponent implements OnInit {
       if(this.filtered.findIndex(x => x.id == el.parent_id) > -1)
         this.filtered.find(x => x.id == el.parent_id).children.push(el)
     })
-
   }
 
 }

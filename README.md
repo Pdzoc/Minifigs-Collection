@@ -2,6 +2,8 @@
 
 **How many minifigures from your childhood will you find?**
 
+You can just browse minifigures database or search minifig by themes or keyword. Policeman, Driver, Crazy Scientist... This application will be very usefull if you want to teach english your children or siblings. Just let them explore - they will memorize vocabulary much faster in context of their favourites toy.
+
 The purpose of this simple project was practicing working with Angular and API. It uses Dexie for storing minifigures.
 
 *You revealed your API key!*  
